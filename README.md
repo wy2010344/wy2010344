@@ -1,11 +1,14 @@
 # 前端 / 跨端 UI 引擎
 
-11 年开发经验。主线是一套自研 UI 内核：信号驱动的 **mve** 为核，向上长出类 React 的 **better-react**，向下移植到 **Kotlin + Skia** 与 **Rust + Vello**——同一套响应式模型与布局思路，在三个语言上各实现一遍。另有独立技术线：自研对象消息语言 **ooc**。
+11 年开发经验。主线是一套自研的信号实现，在它之上并行做出两种 UI 更新模型：**mve** 走信号驱动、细粒度更新；**better-react** 走 React 式更新、函数式无 JSX——两者并列，共用同一套信号实现。信号驱动这套再移植到 **Kotlin + Skia** 与 **Rust + Vello**，同一套响应式思路在三个语言上各实现一遍。另有独立技术线：自研对象消息语言 **ooc**。
 
-## 内核
+## 两套 UI 框架（共用同一套信号实现）
 
-- **[mve](https://github.com/wy2010344/mve)** — 信号驱动 UI 内核：最小响应式核心（批量更新）+ DOM 渲染 + 函数式组件模型；配套 50+ 交互 demo
-- **[better-react](https://github.com/wy2010344/better-react)** — 内核之上的类 React 语义层：函数式、无 JSX，统一组件与 hooks
+- **[mve](https://github.com/wy2010344/mve)** — 信号驱动 UI 框架：最小信号实现（批量更新）+ DOM 渲染 + 函数式组件模型；配套 50+ 交互 demo
+- **[better-react](https://github.com/wy2010344/better-react)** — React 式更新 UI 框架：函数式、无 JSX，组件级重渲染模型
+
+## 跨语言移植
+
 - **[wy-helper-kotlin](https://github.com/wy2010344/wy-helper-kotlin)** — mve 的 Kotlin + Skia 移植，自研 Flex / Stack 布局与文字排版，292 tests · CI 全绿
 - **[rust-mve](https://github.com/wy2010344/rust-mve)** — mve 的 Rust + Vello 移植，自研一维布局（零 Taffy 依赖）+ `rsx!` 声明式宏
 
