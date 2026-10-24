@@ -1,17 +1,21 @@
-# 前端 / 跨端 UI 架构
+# 前端 / 跨端 UI 引擎
 
-11 年开发经验，近 5 年深耕 Web3 与金融交易类产品（行情、盘口、深度图、交易终端）。
+11 年开发经验。主线是一套自研 UI 内核：信号驱动的 **mve** 为核，向上长出类 React 的 **better-react**，向下移植到 **Kotlin + Skia** 与 **Rust + Vello**——同一套响应式模型与布局思路，在三个语言上各实现一遍。另有独立技术线：自研对象消息语言 **ooc**。
 
-我习惯从零造 UI 引擎：同一个响应式信号模型与布局思路，我在 **5 个技术栈** 上各实现过一遍——TypeScript、Rust、Kotlin、Dart、JavaScript。**AI 负责产出，我负责架构约束与验收。**
+## 内核
 
-## 主力项目
+- **[mve](https://github.com/wy2010344/mve)** — 信号驱动 UI 内核：最小响应式核心（批量更新）+ DOM 渲染 + 函数式组件模型；配套 50+ 交互 demo
+- **[better-react](https://github.com/wy2010344/better-react)** — 内核之上的类 React 语义层：函数式、无 JSX，统一组件与 hooks
+- **[wy-helper-kotlin](https://github.com/wy2010344/wy-helper-kotlin)** — mve 的 Kotlin + Skia 移植，自研 Flex / Stack 布局与文字排版，292 tests · CI 全绿
+- **[rust-mve](https://github.com/wy2010344/rust-mve)** — mve 的 Rust + Vello 移植，自研一维布局（零 Taffy 依赖）+ `rsx!` 声明式宏
 
-- **[ooc](https://github.com/wy2010344/ooc)** · 自研「只会发消息」的极简语言 + 完整工具链（解析 / 解释器 / 类型检查 / LSP / 代码生成 / 浏览器运行时），含在线 Playground 与行情终端 Demo
-- **[rust-mve](https://github.com/wy2010344/rust-mve)** · 纯 Rust 信号驱动 UI 框架，自研一维布局 + Vello / wgpu GPU 渲染
-- **[wy-helper-kotlin](https://github.com/wy2010344/wy-helper-kotlin)** · Kotlin + Skia 声明式 GUI 引擎，292 tests · CI 全绿
-- **[es-pseudo-monorepo](https://github.com/wy2010344/es-pseudo-monorepo)** · 多包工程底座（pnpm + turbo + changesets），npm 发布 30+ 包
-- **[module-federation-demo](https://github.com/wy2010344/module-federation-demo)** · Module Federation 循环依赖验证，3 个线上 demo
+## 独立技术线
 
-## 技术栈
+- **[ooc](https://github.com/wy2010344/ooc)** — 自研对象消息语言 + 完整工具链（解析 / 解释器 / 类型检查 / LSP / 代码生成 / 浏览器运行时），含在线 Playground 与行情终端 Demo
+
+## 工程与微前端
+
+- **[es-pseudo-monorepo](https://github.com/wy2010344/es-pseudo-monorepo)** — pnpm + turbo + changesets 多包底座，npm 发布 30+ 包
+- **[module-federation-demo](https://github.com/wy2010344/module-federation-demo)** — Module Federation 循环依赖验证，3 个线上 demo
 
 TypeScript · Rust · Kotlin · Java · Dart ｜ React / Vue / Flutter / 微信小程序 ｜ Canvas / Skia / GPU 渲染 ｜ 桌面端（Rust·iced / Kotlin Multiplatform）
