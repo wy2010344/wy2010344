@@ -19,7 +19,7 @@
 
 ## 工程与微前端
 
-- **[es-pseudo-monorepo](https://github.com/wy2010344/es-pseudo-monorepo)** — pnpm + turbo + changesets 多包底座，npm 发布 30+ 包
+- **[es-pseudo-monorepo](https://github.com/wy2010344/es-pseudo-monorepo)** — pnpm + turbo + changesets 多包底座：统一根配置与发版链；子项目已各自独立成仓，库包经 changesets 自动版本与发布
 - **[module-federation-demo](https://github.com/wy2010344/module-federation-demo)** — Module Federation 循环依赖验证，3 个线上 demo
 
 TypeScript · Rust · Kotlin · Java · Dart ｜ React / Vue / Flutter / 微信小程序 ｜ Canvas / Skia / GPU 渲染 ｜ 桌面端（Rust·iced / Kotlin Multiplatform）
